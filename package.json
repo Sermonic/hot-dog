@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,9 +16,6 @@
     "morgan": "~1.9.1",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
-    "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
     "sequelize": "^6.3.4",
     "sequelize-cli": "^6.2.0"
   }

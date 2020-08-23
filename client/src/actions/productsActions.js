@@ -16,9 +16,7 @@ export const showProducts = () => async (dispatch) => {
   })
 }
 export const showProduct = (id) => async (dispatch) => {
-  const response = await axios.get(
-    `http://localhost:3001/api/v1/products/${id}`
-  )
+  const response = await axios.get(`/api/v1/products/${id}`)
   dispatch({
     type: SHOW_PRODUCT,
     payload: response.data,
@@ -26,7 +24,7 @@ export const showProduct = (id) => async (dispatch) => {
 }
 
 export const deleteProduct = (id) => async (dispatch) => {
-  await axios.delete(`http://localhost:3001/api/v1/products/${id}`)
+  await axios.delete(`/api/v1/products/${id}`)
   dispatch({
     type: DELETE_PRODUCT,
     payload: id,
@@ -34,10 +32,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 }
 
 export const addProduct = (product) => async (dispatch) => {
-  const response = await axios.post(
-    'http://localhost:3001/api/v1/products',
-    product
-  )
+  const response = await axios.post('/api/v1/products', product)
   dispatch({
     type: ADD_PRODUCT,
     payload: response.data,
@@ -45,10 +40,7 @@ export const addProduct = (product) => async (dispatch) => {
 }
 
 export const editProduct = (product) => async (dispatch) => {
-  const response = await axios.put(
-    `http://localhost:3001/api/v1/products/${product.id}`,
-    product
-  )
+  const response = await axios.put(`/api/v1/products/${product.id}`, product)
   dispatch({
     type: EDIT_PRODUCT,
     payload: response.data,

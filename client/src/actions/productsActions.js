@@ -9,7 +9,7 @@ import {
 import axios from 'axios'
 
 export const showProducts = () => async (dispatch) => {
-  const response = await axios.get('http://localhost:3001/api/v1/products')
+  const response = await axios.get('/api/v1/products')
   dispatch({
     type: SHOW_PRODUCTS,
     payload: response.data,

@@ -65,7 +65,6 @@ class EditProduct extends Component {
       description,
       src,
     }
-    console.log(product)
 
     // Update Current Product
     this.props.editProduct(product)

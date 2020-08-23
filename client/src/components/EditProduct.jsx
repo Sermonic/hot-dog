@@ -81,7 +81,7 @@ class EditProduct extends Component {
         <div className='col-md-8'>
           <div className='card'>
             <div className='card-body'>
-              <h2 className='text-center'>Add New Product</h2>
+              <h2 className='text-center'>Edit Product</h2>
               <form onSubmit={this.updateProduct}>
                 <div className='form-group'>
                   <label>Name</label>

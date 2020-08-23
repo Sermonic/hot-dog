@@ -16,7 +16,7 @@ class Product extends Component {
 
     return (
       <div className='col-lg-3 col-md-4 col-sm-6'>
-        <div className='card m-4 shadow-sm'>
+        <div className='card my-4 shadow-sm'>
           <img
             alt={name}
             className='card-img-top'

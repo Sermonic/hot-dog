@@ -19,7 +19,7 @@ class App extends Component {
         <Router>
           <React.Fragment>
             <Header />
-            <div>
+            <div className='container'>
               <Switch>
                 <Route exact path='/' component={Products} />
                 <Route exact path='/products/new' component={NewProduct} />

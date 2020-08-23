@@ -16,7 +16,7 @@ class EditProduct extends Component {
     this.props.showProduct(id)
   }
 
-  componentWillReceiveProps(nextProps, nextState) {
+  UNSAFE_componentWillReceiveProps(nextProps, nextState) {
     const { name, price, description, src } = nextProps.product
 
     this.setState({

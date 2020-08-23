@@ -5,5 +5,12 @@
     "database": "cswuxmed",
     "host": "kandula.db.elephantsql.com",
     "dialect": "postgres"
+  },
+  "production": {
+    "username": "cswuxmed",
+    "password": "TRsBzRNMVNKAMvmjfyrIEvXiwWzC8liM",
+    "database": "cswuxmed",
+    "host": "kandula.db.elephantsql.com",
+    "dialect": "postgres"
   }
 }

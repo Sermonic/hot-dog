@@ -10,20 +10,11 @@ class NewProduct extends Component {
     src: '',
   }
 
-  nameProduct = (e) => {
-    this.setState({ name: e.target.value })
-  }
-
-  priceProduct = (e) => {
-    this.setState({ price: e.target.value })
-  }
-
-  descriptionProduct = (e) => {
-    this.setState({ description: e.target.value })
-  }
-
-  srcProduct = (e) => {
-    this.setState({ src: e.target.value })
+  handleChange = (event) => {
+    const {
+      target: { name, value },
+    } = event
+    this.setState({ [name]: value, event: event })
   }
 
   newProduct = (e) => {
@@ -46,7 +37,6 @@ class NewProduct extends Component {
       description,
       src,
     }
-    console.log(product)
 
     // create the new product
     this.props.addProduct(product)
@@ -56,7 +46,7 @@ class NewProduct extends Component {
   }
 
   render() {
-    const { error } = this.state
+    const { name, price, description, src, error } = this.state
 
     return (
       <div className='row justify-content-center mt-5'>
@@ -68,7 +58,9 @@ class NewProduct extends Component {
                 <div className='form-group'>
                   <label>Name</label>
                   <input
-                    onChange={this.nameProduct}
+                    onChange={this.handleChange}
+                    name='name'
+                    value={name}
                     type='text'
                     className='form-control'
                     placeholder='Name'
@@ -77,7 +69,9 @@ class NewProduct extends Component {
                 <div className='form-group'>
                   <label>Price</label>
                   <input
-                    onChange={this.priceProduct}
+                    onChange={this.handleChange}
+                    name='price'
+                    value={price}
                     type='number'
                     className='form-control'
                     placeholder='Price'
@@ -86,7 +80,9 @@ class NewProduct extends Component {
                 <div className='form-group'>
                   <label>Description</label>
                   <textarea
-                    onChange={this.descriptionProduct}
+                    onChange={this.handleChange}
+                    name='description'
+                    value={description}
                     type='text'
                     className='form-control'
                     placeholder='Description'
@@ -95,7 +91,9 @@ class NewProduct extends Component {
                 <div className='form-group'>
                   <label>Image Link</label>
                   <input
-                    onChange={this.srcProduct}
+                    onChange={this.handleChange}
+                    name='src'
+                    value={src}
                     type='text'
                     className='form-control'
                     placeholder='Image Link'

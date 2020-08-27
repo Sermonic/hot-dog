@@ -1,6 +1,5 @@
 const db = require('../models')
 const Product = db.products
-const Op = db.Sequelize.Op
 
 // Create and Save a new Product
 exports.create = (req, res) => {
@@ -24,7 +23,7 @@ exports.create = (req, res) => {
     description: req.body.description,
     src: req.body.src,
   }
-  console.log(product)
+
   // Save Product in the database
   Product.create(product)
     .then((data) => {
@@ -38,12 +37,9 @@ exports.create = (req, res) => {
     })
 }
 
-// Retrieve all Products from the database.
+// Retrieve all Products from the database
 exports.findAll = (req, res) => {
-  const id = req.query.id
-  var condition = id ? { id: { [Op.iLike]: `%${id}%` } } : null
-
-  Product.findAll({ where: condition })
+  Product.findAll()
     .then((data) => {
       res.send(data)
     })
@@ -54,6 +50,7 @@ exports.findAll = (req, res) => {
       })
     })
 }
+
 // Find a single Product with an id
 exports.findOne = (req, res) => {
   const id = req.params.id
@@ -68,6 +65,7 @@ exports.findOne = (req, res) => {
       })
     })
 }
+
 // Update a Product by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id
@@ -92,6 +90,7 @@ exports.update = (req, res) => {
       })
     })
 }
+
 // Delete a Product with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id
@@ -116,7 +115,8 @@ exports.delete = (req, res) => {
       })
     })
 }
-// Delete all Products from the database.
+
+// Delete all Products from the database
 exports.deleteAll = (req, res) => {
   Product.destroy({
     where: {},

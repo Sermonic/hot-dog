@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Store
 import store from './store'
-// Componentes
 import Products from './components/Products'
 import NewProduct from './components/NewProduct'
 import EditProduct from './components/EditProduct'
@@ -28,7 +27,6 @@ class App extends Component {
                   path='/products/edit/:id'
                   component={EditProduct}
                 />
-                {/* <Route exact path='/products/all' component={ProductsList} /> */}
               </Switch>
             </div>
           </React.Fragment>

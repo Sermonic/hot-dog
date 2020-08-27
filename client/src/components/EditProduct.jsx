@@ -27,24 +27,15 @@ class EditProduct extends Component {
     })
   }
 
-  nameProduct = (e) => {
-    this.setState({ name: e.target.value })
+  handleChange = (event) => {
+    const {
+      target: { name, value },
+    } = event
+    this.setState({ [name]: value, event: event })
   }
 
-  priceProduct = (e) => {
-    this.setState({ price: e.target.value })
-  }
-
-  descriptionProduct = (e) => {
-    this.setState({ description: e.target.value })
-  }
-
-  srcProduct = (e) => {
-    this.setState({ src: e.target.value })
-  }
-
-  updateProduct = (e) => {
-    e.preventDefault()
+  updateProduct = (event) => {
+    event.preventDefault()
 
     const { name, price, description, src } = this.state
 
@@ -86,32 +77,36 @@ class EditProduct extends Component {
                 <div className='form-group'>
                   <label>Name</label>
                   <input
+                    onChange={this.handleChange}
+                    name='name'
                     value={name}
-                    onChange={this.nameProduct}
                     type='text'
                     className='form-control'
                     placeholder='Name'
                   />
                   <label>Price</label>
                   <input
+                    onChange={this.handleChange}
+                    name='price'
                     value={price}
-                    onChange={this.priceProduct}
                     type='text'
                     className='form-control'
                     placeholder='Price'
                   />
                   <label>Description</label>
                   <input
+                    onChange={this.handleChange}
+                    name='description'
                     value={description}
-                    onChange={this.descriptionProduct}
                     type='text'
                     className='form-control'
                     placeholder='Description'
                   />
                   <label>Image Link</label>
                   <input
+                    onChange={this.handleChange}
+                    name='src'
                     value={src}
-                    onChange={this.srcProduct}
                     type='text'
                     className='form-control'
                     placeholder='Image Link'

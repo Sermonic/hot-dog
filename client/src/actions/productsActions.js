@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
   SHOW_PRODUCTS,
   DELETE_PRODUCT,
@@ -5,8 +6,6 @@ import {
   SHOW_PRODUCT,
   EDIT_PRODUCT,
 } from './types'
-
-import axios from 'axios'
 
 export const showProducts = () => async (dispatch) => {
   const response = await axios.get('/api/v1/products')

@@ -11,6 +11,13 @@ class Product extends Component {
     this.props.deleteProduct(id)
   }
 
+  shortText = (text, maxLength = 110) => {
+    if (!text) return ' '
+    if (text.length <= maxLength) return text
+
+    return text.substr(0, maxLength) + '...'
+  }
+
   render() {
     const { id, name, price, description, src, createdAt } = this.props.data
 
@@ -18,18 +25,18 @@ class Product extends Component {
       <div className='col-lg-3 col-md-4 col-sm-6'>
         <div className='card my-4 shadow-sm'>
           <img
-            alt={name}
             className='card-img-top'
             width='100%'
             height='225'
             focusable='false'
             aria-label={name}
+            alt={name}
             src={src}
           />
           <div className='card-body'>
             <h4 className='card-title'>{name}</h4>
             <p className='card-text'>$ {price}</p>
-            <p className='card-text'>{description}</p>
+            <p className='card-text'>{this.shortText(description)}</p>
             <div className='d-flex justify-content-between align-items-center'>
               <div className='btn-group'>
                 <Link

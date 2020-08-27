@@ -22,8 +22,6 @@ class NewProduct extends Component {
 
     const { name, price, description, src } = this.state
 
-    debugger
-
     if (name === '' || price === '' || description === '' || src === '') {
       this.setState({ error: true })
       return
